@@ -79,12 +79,13 @@ body {
 
 .form .btn {
   position: relative;
-  width: 60%;
-  left: calc(60% / 4);
+  width: 40%;
+  left: calc(30%);
   background-color: var(--text-hightlight-color);
   color: white;
   margin-top: 20px;
   border: none;
+  margin-top: 10%;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
