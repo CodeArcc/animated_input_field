@@ -4,7 +4,8 @@
 }
 
 :root {
-  --text-color: blue;
+  --text-color: grey;
+  --text-hightlight-color: rgb(45, 45, 255);
   --transition-time: 0.5s;
 }
 
@@ -19,54 +20,88 @@ body {
 }
 
 .form {
-  position: relative;
+  position: absolute;
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.form input {
+.input-control {
+  position: relative;
+  width: 80%;
+  height: 50px;
+  margin: 10px auto;
+}
+
+.input-control input {
   width: 100%;
   height: 100%;
   font-size: 16px;
   border: none;
-  border-bottom: 2px solid grey;
+  padding-top: 20px;
+  font-weight: 5px;
+  border-bottom: 2px solid var(--text-color);
 }
 
-.form input:focus {
+.input-control input:focus {
   outline: none;
 }
 
-.form label {
+.input-control label {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
   transition: transform 0.4s ease;
+  pointer-events: none;
 }
 
-.form label .content-name {
+.input-control label .content-name {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  color: var(--text-color);
+  left: 2;
+  padding-top: 25px;
   transition: all var(--transition-time) ease;
 }
 
-.form label::after {
+.input-control label::after {
   content: "";
   position: absolute;
   width: 0%;
   height: 100%;
   bottom: 0;
-  border-bottom: 3px solid var(--text-color);
+  border-bottom: 3px solid var(--text-hightlight-color);
   transition: all var(--transition-time) ease;
 }
 
-.form input:focus + label .content-name,
-.form input:valid + label .content-name {
-  color: var(--text-color);
-  transform: translateY(-25px);
+.form .btn {
+  position: relative;
+  width: 60%;
+  left: calc(60% / 4);
+  background-color: var(--text-hightlight-color);
+  color: white;
+  margin-top: 20px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.form input:focus + label::after,
-.form input:valid + label::after {
+.form .btn:focus {
+  outline: none;
+  transform: scale(0.98);
+}
+
+.input-control input:focus + label .content-name,
+.input-control input:valid + label .content-name {
+  color: var(--text-hightlight-color);
+  padding-top: 0;
+}
+
+.input-control input:focus + label::after,
+.input-control input:valid + label::after {
   width: 100%;
 }
